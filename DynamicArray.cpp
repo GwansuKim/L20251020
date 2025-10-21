@@ -30,6 +30,9 @@ void TDynamicArray::PushBack(int Value)
 		Data = new int[Size];
 		std::copy(Temp, &(Temp[Size]), Data);
 
+		delete[] Temp;
+		Temp = nullptr;
+
 		Index++;
 	}
 }

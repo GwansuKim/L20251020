@@ -3,8 +3,7 @@
 #include <algorithm>
 #include <iterator>
 
-TDynamicArray::TDynamicArray() :
-	Data(new int[Size])
+TDynamicArray::TDynamicArray()
 {
 }
 
@@ -14,6 +13,11 @@ TDynamicArray::~TDynamicArray()
 
 void TDynamicArray::PushBack(int Value)
 {
+	if (Data == nullptr)
+	{
+		Data = new int[Size];
+	}
+
 	if (Index < Size)
 	{
 		Data[Index] = Value;
@@ -21,14 +25,12 @@ void TDynamicArray::PushBack(int Value)
 	}
 	else
 	{
-		Size++;
-		int* Temp = new int[Size];
-
-		std::copy(Data, &(Data[Size - 1]), Temp);
-		Temp[Index] = Value;
+		Size <<= 1;
+		int* Temp = Data;
 
 		Data = new int[Size];
-		std::copy(Temp, &(Temp[Size]), Data);
+		std::copy(Temp, &(Temp[Index + 1]), Data);
+		Data[Index] = Value;
 
 		delete[] Temp;
 		Temp = nullptr;
@@ -39,8 +41,14 @@ void TDynamicArray::PushBack(int Value)
 
 void TDynamicArray::PrintOut()
 {
-	for(int i = 0; i < Size; ++i)
+	for(int i = 0; i < Index; ++i)
 	{
 		std::cout << Data[i] << std::endl;
 	}
+}
+
+int TDynamicArray::PrintSize()
+{
+	std::cout << "Size : " << Index << std::endl;
+	return Index;
 }

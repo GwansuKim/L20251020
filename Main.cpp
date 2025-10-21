@@ -4,13 +4,15 @@
 int main(int argc, char* argv[])
 {
 	TDynamicArray TDA;
+	TDA.PrintSize();
 
-	for (int i = 1; i <= 20; ++i)
+	for (int i = 1; i <= 100; ++i)
 	{
 		TDA.PushBack(i);
 	}
 
 	TDA.PrintOut();
+	TDA.PrintSize();
 
 	//GEngine->Init();
 	//GEngine->Run();

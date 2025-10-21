@@ -5,7 +5,7 @@ public:
 	TDynamicArray();
 	virtual ~TDynamicArray();
 
-	int* Data = new int[Size];
+	int* Data;
 
 	int Size = 10;
 
@@ -14,5 +14,7 @@ public:
 	void PushBack(int Value);
 
 	void PrintOut();
+
+	int PrintSize();
 };
 

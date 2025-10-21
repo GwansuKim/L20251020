@@ -14,6 +14,7 @@ public:
 
 	virtual void Tick();
 	virtual void Render();
+	void SortActor();
 
 protected:
 	std::vector<AActor*> Actors;

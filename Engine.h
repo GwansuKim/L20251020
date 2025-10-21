@@ -3,6 +3,9 @@ class UWorld;
 
 class FEngine
 {
+protected:
+	FEngine();
+
 public:
 	virtual ~FEngine();
 
@@ -31,8 +34,6 @@ protected:
 
 	int KeyCode = 0;
 
-
-	FEngine();
 	static FEngine* Instance;
 
 public:

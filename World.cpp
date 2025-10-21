@@ -15,9 +15,9 @@ UWorld::~UWorld()
 {
 }
 
-std::vector<AActor*> UWorld::GetAllActors() const
+void UWorld::GetAllActors(std::vector<AActor*>& OutActors) const
 {
-	return Actors;
+	OutActors = Actors;
 }
 
 AActor* UWorld::SpawnActor(AActor* NewActor)
